@@ -28,19 +28,23 @@ A personal lab environment documenting my journey toward the Linux Foundation Ce
 
 \## Progress
 
-\- \[ ] Environment setup
+\- \[x] Environment setup
 
-\- \[ ] Linux filesystem and navigation
+\- \[x] Linux filesystem and navigation
 
-\- \[ ] User and group management
+\- \[x] User and group management
 
-\- \[ ] File permissions
+\- \[x] File permissions
 
-\- \[ ] Networking
+\- \[x] Networking
 
 \- \[ ] Storage management
 
 \- \[ ] Security
 
 \- \[ ] Containers and virtualization
+
+
+## Live Site
+https://matteilla.xyz
 
