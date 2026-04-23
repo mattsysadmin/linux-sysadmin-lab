@@ -48,3 +48,17 @@ Set up automated backups and server monitoring.
 
 \- SSH key authentication
 
+## SSH Key Authentication
+
+\- Generated ED25519 key pair on Windows host
+
+\- Copied public key to server \~/.ssh/authorized\_keys
+
+\- Disabled password authentication in /etc/ssh/sshd\_config
+
+\- Fixed cloud-init override in /etc/ssh/sshd\_config.d/50-cloud-init.conf
+
+\- Verified password login returns "Permission denied (publickey)"
+
+\- Server now only accepts key-based SSH login
+
