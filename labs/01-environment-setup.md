@@ -50,3 +50,9 @@ Set up a local Linux lab environment using VirtualBox and Ubuntu Server 22.04 LT
 
 ran `uname -a` and confirmed kernel version 5.15.0-176-generic running on x86\_64
 
+
+## Post-Install Updates
+- Ran `sudo apt update && sudo apt upgrade -y`
+- Applied 70 pending security updates
+- All services restarted successfully
+- System is fully up to date
