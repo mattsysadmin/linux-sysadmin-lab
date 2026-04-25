@@ -78,3 +78,37 @@ Secure the Ubuntu Server against common attacks.
 
 \- Update WordPress site URL to domain
 
+
+## WordPress Security Hardening
+### Date
+2026-04-25
+
+### Issues Found
+While analyzing `/var/log/apache2/access.log` we identified two security concerns:
+- Someone attempted to access `wp-admin/install.php` which should not be publicly accessible after installation
+- Someone queried `/?author=1` via the REST API to enumerate usernames -- a common first step in brute force attacks
+
+### Fixes Applied
+
+**Block install.php**
+Added to `/etc/apache2/sites-available/wordpress.conf` outside the Directory block:
+```apache
+RedirectMatch 403 ^/wp-admin/install\.php$
+```
+
+**Block user enumeration**
+Added to `/var/www/html/wordpress/wp-config.php` after <?php:
+```php
+if (isset($_GET['author'])) {
+    header('HTTP/1.1 403 Forbidden');
+    exit;
+}
+```
+
+### Verification
+```bash
+curl -I http://localhost/wp-admin/install.php  # Returns 403
+curl -I "http://localhost/?author=1"           # Returns 403
+curl -I http://localhost                       # Returns 301 to https (site still works)
+```
+
